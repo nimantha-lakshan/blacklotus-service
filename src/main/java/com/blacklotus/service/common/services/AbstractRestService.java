@@ -1,4 +1,4 @@
-package com.blacklotus.service.common.service;
+package com.blacklotus.service.common.services;
 
 import com.blacklotus.service.common.dao.DAO;
 import com.blacklotus.service.common.dto.DTO;
