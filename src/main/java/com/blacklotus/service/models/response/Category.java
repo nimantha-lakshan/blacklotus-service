@@ -2,9 +2,14 @@ package com.blacklotus.service.models.response;
 
 import com.blacklotus.service.models.Model;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.ToString;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import lombok.Getter;
+import lombok.Setter;
 
-@ToString
+@Getter
+@Setter
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Category implements Model {
 
     @JsonProperty("description")

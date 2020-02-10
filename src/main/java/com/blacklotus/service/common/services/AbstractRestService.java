@@ -5,6 +5,7 @@ import com.blacklotus.service.common.dao.DAO;
 import com.blacklotus.service.common.dto.DTO;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
@@ -43,9 +44,10 @@ public abstract class AbstractRestService {
         return this.restTemplate;
     }
 
-    private void getEmployees() {
-        String result = this.restTemplate.getForObject(Constants.BASE_URL, String.class);
-        System.out.println(result);
+    public UriComponentsBuilder getUriComponentsBuilder() {
+        return UriComponentsBuilder.newInstance()
+                .scheme(Constants.SCHEMA)
+                .host("sonplaceholder.typicode.com/users");
     }
 
 }
