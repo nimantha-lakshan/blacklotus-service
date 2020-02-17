@@ -28,4 +28,13 @@ public class AbstractRestController {
                 .build();
         return new ResponseEntity<>(response, headers, httpStatus);
     }
+
+    public ResponseEntity<Object> processResponse(@NonNull HttpStatus httpStatus, HttpHeaders headers, Object body) {
+        ResponseDTO response = ResponseDTO.builder()
+                .status(httpStatus.value())
+                .message("Success")
+                .body(body)
+                .build();
+        return new ResponseEntity<>(response, headers, httpStatus);
+    }
 }

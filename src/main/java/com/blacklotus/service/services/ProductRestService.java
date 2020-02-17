@@ -22,8 +22,9 @@ public class ProductRestService extends AbstractRestService implements IProductR
 
     @Override
     public List<ProductDTO> findAll() {
+
         final ArrayList<ProductDTO> list = new ArrayList<>();
-        ApiResponse forObject = this.getRestTemplate().getForObject("http://localhost:8080/api/v1/product", ApiResponse.class);
+        ApiResponse forObject = this.getRestTemplate().getForObject(this.buildRequestUrl("/product"), ApiResponse.class);
         if (forObject != null && forObject.getBody() != null) {
             forObject.getBody().forEach(product -> {
                 ProductDTO build = ProductDTO.builder()
